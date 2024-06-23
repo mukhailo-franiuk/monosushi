@@ -1,0 +1,18 @@
+App/
+    components/
+        header.component
+        footer.component
+        admin.component
+        users.component
+        pages/
+            home.component
+            product.component
+            product-info.component
+            discount.component
+            discount-info.component
+            delivery.component
+            about.component
+    containers/
+    option/
+    store/
+    images/
