@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { EnterUsers } from "../form/EnterUsers";
+import { RegForm } from "../form/RegForm";
+import { RememberForm } from "../form/RemenberForm";
 
 export const XsVersionHeader = () => {
     const [burgerOpened, setBurgerOpened] = useState('block');
@@ -10,18 +12,21 @@ export const XsVersionHeader = () => {
     const [openNavigation, setOpenNavigation] = useState('hidden');
     const [openForms, setOpenFotms] = useState('hidden');
 
-    const [enterFotm , setEnterForm] = useState('block');
-    const [regForm , setRegForm] = useState('hidden');
-    const [rememberForm , setRememberForm] = useState('hidden');
+    const [enterFotm, setEnterForm] = useState('block');
+    const [regForm, setRegForm] = useState('hidden');
+    const [rememberForm, setRememberForm] = useState('hidden');
 
     const closeAllWindow = () => {
         setBurgerOpened('block');
         setBurgerClosed('hidden');
         setOpenNavigation('hidden');
         setOpenFotms('hidden');
+        setEnterForm('block');
+        setRegForm('hidden');
+        setRememberForm('hidden');
     }
     return (
-        <div className="w-full flex items-center">
+        <div className="w-full flex items-center bg-white">
             {/* Logo App */}
             <div className=" w-1/5 h-14">
                 <Link to='/' className="w-full h-full flex justify-center items-center bg-blue-300" onClick={closeAllWindow}>
@@ -41,12 +46,15 @@ export const XsVersionHeader = () => {
                     setBurgerClosed('hidden');
                     setBurgerOpened('block');
                     setOpenNavigation('hidden');
+                    setEnterForm('block');
+                    setRegForm('hidden');
+                    setRememberForm('hidden');
                 }}>
                     <img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/user.svg" alt="" />
                 </button>
             </div>
             {/* Users form block */}
-            <div className={`absolute top-16 w-full bg-transparent bg-gray-600 flex flex-col items-center ${openForms}`}>
+            <div className={`absolute top-16 w-full bg-transparent bg-gray-600 flex flex-col items-center ${openForms} z-10`}>
                 <div className="w-11/12 shadow-xl rounded-xl border overflow-hidden">
                     <div className="w-full bg-white flex justify-end">
                         <button className=" w-8 h-8" onClick={() => {
@@ -59,11 +67,38 @@ export const XsVersionHeader = () => {
                     </div>
                     <div className={`w-full ${enterFotm}`}>
                         <EnterUsers />
+                        <div className="w-full bg-white">
+                            <div className="w-4/5 flex justify-between mx-auto">
+                                <button className="text-xs py-2 pb-6" onClick={()=>{
+                                    setEnterForm('hidden');
+                                    setRememberForm('block');
+                                }}>Забули пароль?</button>
+                                <button className="text-xs py-2 pb-6" onClick={() => {
+                                    setEnterForm('hidden');
+                                    setRegForm('block');
+                                }}>Зареєструватись</button>
+                            </div>
+                        </div>
                     </div>
-                    <div className="w-full">
-                        <div className="w-4/5 flex justify-between mx-auto">
-                            <button className="text-xs py-2 pb-6">Забули пароль?</button>
-                            <button className="text-xs py-2 pb-6">Зареєструватись</button>
+                    <div className={`w-full ${regForm}`}>
+                        <RegForm />
+                        <div className="w-4/5 flex justify-center items-center mx-auto ">
+                            <span className="text-xs py-5">Ви вже зареєстровані?</span>
+                            <button className="text-xs py-5 text-black font-bold pl-1" onClick={() => {
+                                setEnterForm('block');
+                                setRegForm('hidden');
+                            }}>Увійти</button>
+                        </div>
+                    </div>
+                    <div className={`w-full ${rememberForm}`}>
+                        <RememberForm />
+                        <div className="w-4/5 flex justify-center items-center mx-auto ">
+                            <span className="text-xs py-5">Повернутися до </span>
+                            <button className="text-xs py-5 text-black font-bold pl-1" onClick={() => {
+                                setEnterForm('block');
+                                setRegForm('hidden');
+                                setRememberForm('hidden');
+                            }}>Входу</button>
                         </div>
                     </div>
                 </div>
@@ -111,7 +146,7 @@ export const XsVersionHeader = () => {
                 </div>
             </div>
             {/* Bottom links */}
-            <div className="fixed bottom-0 w-full h-20 flex">
+            <div className="fixed bottom-0 w-full h-20 flex bg-white">
                 <div className=" w-1/4 h-full">
                     <Link to='product/roll' className="w-full h-full flex flex-col justify-center items-center" onClick={closeAllWindow}>
                         <img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-rolls.svg" alt="" />

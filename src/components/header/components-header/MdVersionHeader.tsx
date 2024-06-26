@@ -6,7 +6,7 @@ import { EnterUsers } from "../form/EnterUsers";
 import { RegForm } from "../form/RegForm";
 import { RememberForm } from "../form/RemenberForm";
 
-export const SmVersionHeader = () => {
+export const MdVersionHeader = () => {
     const [burgerOpened, setBurgerOpened] = useState('block');
     const [burgerClosed, setBurgerClosed] = useState('hidden');
     const [openNavigation, setOpenNavigation] = useState('hidden');
@@ -28,19 +28,19 @@ export const SmVersionHeader = () => {
     return (
         <div className="w-full flex items-center bg-white">
             {/* Logo App */}
-            <div className=" w-1/5 h-16">
+            <div className=" w-1/5 h-20">
                 <Link to='/' className="w-full h-full flex justify-center items-center bg-blue-300" onClick={closeAllWindow}>
                     <img className=" w-4/5 h-4/5" src="https://monosushi.com.ua/wp-content/uploads/2021/08/logo-mobile.svg" alt="" />
                 </Link>
             </div>
             {/* Phone button */}
-            <div className=" w-1/5 h-16">
+            <div className=" w-1/5 h-20">
                 <button className=" w-full h-full flex justify-center items-center">
                     <img src="https://monosushi.com.ua/wp-content/uploads/2020/10/phone.svg" alt="" />
                 </button>
             </div>
             {/* Users enter button */}
-            <div className=" w-1/5 h-16">
+            <div className=" w-1/5 h-20">
                 <button className="relative w-full h-full flex justify-center items-center" onClick={() => {
                     setOpenFotms('block');
                     setBurgerClosed('hidden');
@@ -54,7 +54,7 @@ export const SmVersionHeader = () => {
                 </button>
             </div>
             {/* Users form block */}
-            <div className={`absolute top-16 w-1/2 left-1/4 bg-transparent bg-gray-600 flex flex-col items-center ${openForms} z-10`}>
+            <div className={`absolute top-24 w-1/2 left-1/4 bg-transparent bg-gray-600 flex flex-col items-center ${openForms} z-10`}>
                 <div className="w-11/12 shadow-xl rounded-xl border overflow-hidden">
                     <div className="w-full bg-white flex justify-end">
                         <button className=" w-8 h-8" onClick={() => {
@@ -104,7 +104,7 @@ export const SmVersionHeader = () => {
                 </div>
             </div>
             {/* Burger button */}
-            <div className=" w-1/5 h-16">
+            <div className=" w-1/5 h-20">
                 <button className={` w-full h-full flex justify-center items-center ${burgerOpened}`} onClick={() => {
                     setBurgerOpened('hidden');
                     setBurgerClosed('block');
@@ -126,14 +126,14 @@ export const SmVersionHeader = () => {
                 </button>
             </div>
             {/* Checkout link */}
-            <div className=" w-1/5 h-16">
+            <div className=" w-1/5 h-20">
                 <Link to='checkout' className="w-full h-full bg-blue-300 flex items-center justify-center" onClick={closeAllWindow}>
                     <img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/basket.svg" alt="" />
                     <span className="bg-white p-1 rounded-full w-6 h-6 flex justify-center items-center right-4">0</span>
                 </Link>
             </div>
             {/* hidden menu */}
-            <div className={`w-1/2 h-4/5 bg-white fixed top-16 right-0 border-l-2 border-b-2 flex flex-col ${openNavigation}`}>
+            <div className={`w-1/2 h-2/4 bg-white fixed top-20 right-0 border-l-2 border-b-2 flex flex-col ${openNavigation}`}>
                 <Link to='product/sauces' className="px-6 py-2 my-2 font-extrabold" onClick={closeAllWindow}>Соуси</Link>
                 <Link to='discount' className="px-6 py-2 my-2 font-extrabold" onClick={closeAllWindow}>Акції</Link>
                 <Link to='delivery' className="px-6 py-2 my-2 font-extrabold" onClick={closeAllWindow}>Доставка та оплата</Link>

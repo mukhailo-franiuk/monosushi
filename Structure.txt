@@ -10,6 +10,7 @@ App/
             product-info.component
             discount.component
             discount-info.component
+            checkout.component
             delivery.component
             about.component
     containers/
