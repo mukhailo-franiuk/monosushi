@@ -93,8 +93,8 @@ export const LgVersionAbout = () => {
                             <div className=" w-1/2 h-1/3 bg-blue-300  rounded-xl flex justify-center items-center">
                                 <img className="w-4/5 h-4/5" src={item.imagePatch} alt="" />
                             </div>
-                            <h3 className=" w-full h-1/3 text-center font-black py-6 text-lg">{item.title}</h3>
-                            <p className=" w-full h-1/3 text-center text-sm leading-8">{item.description}</p>
+                            <h3 className=" w-full text-center font-black py-4 text-lg">{item.title}</h3>
+                            <p className=" w-3/4 text-center text-sm">{item.description}</p>
                         </div>
                     )}
                 </div>
