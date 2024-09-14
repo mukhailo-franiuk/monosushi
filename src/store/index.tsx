@@ -1,8 +1,7 @@
-import { configureStore } from "@reduxjs/toolkit";
-import AllUsers from "./users/AllUsers";
+import { configureStore } from "@reduxjs/toolkit"
 
 export default configureStore({
     reducer : {
-        allUsers : AllUsers
+
     }
 })
