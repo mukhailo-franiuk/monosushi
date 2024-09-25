@@ -1,6 +1,4 @@
-
 import { useParams } from "react-router-dom";
-
 export const ProductsPage = () => {
 
     let obj = useParams();

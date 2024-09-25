@@ -21,6 +21,7 @@ App/
             delivery.component
             checkout.component
             about.component
+            sing-up.component
     containers/
         forms/
     option/
